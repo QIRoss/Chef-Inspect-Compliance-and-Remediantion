@@ -10,7 +10,7 @@ Day 53–54: Automate compliance checks and remediation using tools like Chef In
 
 ## Project Overview
 
-The project idea is use Chef Inspec to check if the container is working fine and if not remediate it with build and making it run.
+This project demonstrates how to use Chef InSpec to monitor the status of a container, ensuring it is running correctly. If the container is found to be non-compliant (i.e., not running), the project automates the remediation process by rebuilding and restarting the container.
 
 ## How to Use
 
@@ -46,9 +46,9 @@ chmod +x remediate_fastapi.sh
 chmod +x run_inspec_and_remediate.sh
 ```
 
-```run_inspec_and_remediate.sh``` will remediate the "container stopped" situation if positive, else will tell everything is fine. It will create a log text file ```inspec_output.txt```
+The ```run_inspec_and_remediate.sh``` script will automatically handle the remediation process if the container is not running. If everything is fine, it will simply log that the container is compliant. The script also generates an output log (inspec_output.txt), which captures the results of the compliance check.
 
-```remediate_fastapi.sh``` uses docker container state to check if build and running is needed.
+The ```remediate_fastapi.sh``` script checks the current state of the Docker container. If the container is not running, it will trigger the build and run process.
 
 ## Author
 This project was implemented by [Lucas de Queiroz dos Reis][2]. It is based on the [100 Days System Design for DevOps and Cloud Engineers][1].
